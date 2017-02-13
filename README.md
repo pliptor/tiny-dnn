@@ -4,6 +4,11 @@
 
 http://github.com/tiny-dnn/tiny-dnn/
 
+## Immediate goal of this fork: improve MNIST single-digit classification in the upstream code
+
+The core is to be preserved such that documentation related to on how to compile, etc. is available
+in the upstream. 
+
 ## References
 [1] Y. Bengio, [Practical Recommendations for Gradient-Based Training of Deep Architectures.](http://arxiv.org/pdf/1206.5533v2.pdf) 
     arXiv:1206.5533v2, 2012
@@ -16,5 +21,5 @@ other useful reference lists:
 - [deeplearning.net reading list](http://deeplearning.net/reading-list/)
 
 ## License
-The BSD 3-Clause License
+The BSD 3-Clause License (keeping upstream license)
 
