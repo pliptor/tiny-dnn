@@ -1,6 +1,6 @@
 # Fork of **tiny-dnn**
 
-## Please follow the link in the logo below for the upstream project
+## Please follow the link below for the upstream project
 
 http://github.com/tiny-dnn/tiny-dnn/
 
