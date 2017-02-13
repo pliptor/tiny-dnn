@@ -4,9 +4,12 @@
 
 http://github.com/tiny-dnn/tiny-dnn/
 
-## Immediate goal of this fork: improve MNIST single-digit classification in the upstream code
+## Immediate goal of this fork: improve MNIST single-digit classification performance in the upstream code
 
-The core is to be preserved such that documentation related to on how to compile, etc. is available
+The current advertized performance by upstream is 98.8%. 
+The current performace in this fork is 99.1% 99.2% is ready to be commited.
+
+The core is to be preserved such that documentation related to on how to compile, etc., is available
 in the upstream. 
 
 ## References
