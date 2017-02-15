@@ -18,6 +18,8 @@ The figure below is an example of a plot for simulation results. It shows the nu
 The core of the codebase is to be preserved such that documentation related to on how to compile, etc., is available
 in the upstream. 
 
+<img src="https://travis-ci.org/pliptor/tiny-dnn.svg?branch=master">
+
 ## References
 [1] Y. Bengio, [Practical Recommendations for Gradient-Based Training of Deep Architectures.](http://arxiv.org/pdf/1206.5533v2.pdf) 
     arXiv:1206.5533v2, 2012
