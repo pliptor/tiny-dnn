@@ -4,6 +4,15 @@
 
 http://github.com/tiny-dnn/tiny-dnn/
 
+If you like C++ and wants to play with deep learning, in my opining, this library is good with the following nice
+features:
+
+* No libraries or external packages required so I could had it up and running in a few minutes.
+* Classical examples included (MNIST and CIFAR10), so it's easy to get started.
+* Easy to understand interface.
+* The project is active with good support as of this writing Feb 2017
+* Many others... follow the upstream project.
+
 ## Immediate goal of this fork: improve MNIST single-digit classification performance in the upstream code
 
 The advertized performance by the upstream is 98.8%. 
