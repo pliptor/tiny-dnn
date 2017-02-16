@@ -4,7 +4,7 @@
 
 http://github.com/tiny-dnn/tiny-dnn/
 
-If you like C++ and wants to play with deep learning, in my opining, this library is good with the following nice
+If you like C++ and want to play with deep learning, in my opinion, this library is good with the following nice
 features:
 
 * No libraries or external packages required so I could had it up and running in a few minutes.
