@@ -21,8 +21,8 @@ The current performace in this fork is 99.1% 99.2% is ready to be commited.
 The figure below is an example of a plot for simulation results. It shows the number of correct classifications out of
 10000 tests as the network gets trained.
 
-<img src="https://cloud.githubusercontent.com/assets/23116478/22905779/7b05721e-f1f6-11e6-83a2-a7474d7a1d41.png">
-(Number of correct digit classifications versus epoch)
+<img src="https://cloud.githubusercontent.com/assets/23116478/22905779/7b05721e-f1f6-11e6-83a2-a7474d7a1d41.png" width=500>
+*(Number of correct digit classifications versus epoch)*
 
 The core of the codebase is to be preserved such that documentation related to on how to compile, etc., is available
 in the upstream. 
