@@ -1,10 +1,14 @@
-# Fork of **tiny-dnn**
+# Fork of Deep Learning library:
 
-##  Please follow the link below for the upstream project if you are looking for tiny-dnn
+<div align="center">
+  <img src="https://github.com/tiny-dnn/tiny-dnn/blob/master/docs/logo/TinyDNN-logo-letters-alpha-version.png"width=200><br><br>
+</div>
+
+###  Please follow the link below for the upstream project if you are looking for tiny-dnn
 
 http://github.com/tiny-dnn/tiny-dnn/
 
-If you like C++ and want to play with deep learning, in my opinion, this library is good with the following nice
+If you like C++ and want to play with deep learning, in my opinion, tiny-dnn is a good library with the following nice
 features:
 
 * No libraries or external packages required so I could had it up and running in a few minutes.
@@ -13,7 +17,7 @@ features:
 * The project is active with good support as of this writing Feb 2017
 * Many others... follow the upstream project.
 
-## Immediate goal of this fork: improve MNIST single-digit classification performance in the upstream code
+## Immediate goal of this fork: improve MNIST handwritten single-digit classification performance in the upstream code
 
 The advertized performance by the upstream is 98.8%. 
 The current performace in this fork is 99.1% 99.2% is ready to be commited.
