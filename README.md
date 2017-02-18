@@ -6,7 +6,7 @@
 
 ###  Please follow the link below for the upstream project if you are looking for tiny-dnn
 
-http://github.com/tiny-dnn/tiny-dnn/
+https://github.com/tiny-dnn/tiny-dnn/
 
 If you like C++ and want to play with deep learning, in my opinion, tiny-dnn is a good library with the following nice
 features:
