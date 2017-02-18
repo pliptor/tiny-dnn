@@ -1,23 +1,28 @@
-# Fork of Deep Learning library:
+# tiny-dnn-lab: fork of Deep Learning library:
 
 <div align="center">
   <img src="https://github.com/tiny-dnn/tiny-dnn/blob/master/docs/logo/TinyDNN-logo-letters-alpha-version.png"width=200><br><br>
 </div>
 
+<img src="https://travis-ci.org/pliptor/tiny-dnn.svg?branch=master">
+
 ###  Please follow the link below for the upstream project if you are looking for tiny-dnn
 
 https://github.com/tiny-dnn/tiny-dnn/
 
-If you like C++ and want to play with deep learning, in my opinion, tiny-dnn is a good library with the following nice
+If you like C++ and want to play with deep learning, in my opinion, tiny-dnn is a good library for the following nice
 features:
 
-* No libraries or external packages required so I could had it up and running in a few minutes.
+* No libraries or external packages required. I could had it up and running in a few minutes.
 * Classical examples included (MNIST and CIFAR10), so it's easy to get started.
 * Easy to understand interface.
-* The project is active with good support as of this writing Feb 2017
+* The upstream library project is active with good support as of this writing Feb 2017
 * Many others... follow the upstream project.
 
-## Immediate goal of this fork: improve MNIST handwritten single-digit classification performance in the upstream code
+## Immediate goal of this fork: improve MNIST classification performance in the upstream code
+
+### The challenge is to classify handwritten single digits like this
+<img src="https://cloud.githubusercontent.com/assets/23116478/23090826/1b412d8c-f55c-11e6-899b-eea967f80709.png"width=200>
 
 The advertized performance by the upstream is 98.8%. 
 The current performace in this fork is 99.1% 99.2% is ready to be commited.
@@ -31,7 +36,12 @@ The figure below is an example of a plot for simulation results. It shows the nu
 The core of the codebase is to be preserved such that documentation related to on how to compile, etc., is available
 in the upstream. 
 
-<img src="https://travis-ci.org/pliptor/tiny-dnn.svg?branch=master">
+
+### The next challenge is classifying images (cifar10)
+
+Here's snapshot generated when the network is being used to recognize a picture of horse.
+<img src="https://cloud.githubusercontent.com/assets/23116478/23090774/f33b0b88-f55a-11e6-9742-22c67b2ea7ba.png">
+
 
 ## References
 [1] Y. Bengio, [Practical Recommendations for Gradient-Based Training of Deep Architectures.](https://arxiv.org/pdf/1206.5533v2.pdf) 
