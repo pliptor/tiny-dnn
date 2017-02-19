@@ -1,4 +1,4 @@
-# tiny-dnn-lab:<br> A fork of the C++ Deep Learning library <img src="https://github.com/pliptor/tiny-dnn/blob/master/docs/logo/TinyDNN-logo-letters-alpha-version.png"width=120>
+# tiny-dnn-lab:<br> A fork of the C++ Deep Learning library <img src="https://github.com/pliptor/tiny-dnn/blob/master/docs/logo/TinyDNN-logo-letters-alpha-version.png" alt="Drawing" width="150">
 
 ## This fork plays with some of its examples and create others
 
