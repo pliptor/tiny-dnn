@@ -20,7 +20,7 @@ features:
 ## Immediate goal of this fork: improve MNIST classification performance in the upstream code
 
 ### The challenge is to classify handwritten single digits like this
-<img src="https://cloud.githubusercontent.com/assets/23116478/23090826/1b412d8c-f55c-11e6-899b-eea967f80709.png"width=200>
+<img src="https://cloud.githubusercontent.com/assets/23116478/23090826/1b412d8c-f55c-11e6-899b-eea967f80709.png">
 
 The advertized performance by the upstream is 98.8%. 
 The current performace in this fork is 99.1% 99.2% is ready to be commited.
@@ -28,7 +28,7 @@ The current performace in this fork is 99.1% 99.2% is ready to be commited.
 The figure below is an example of a plot for simulation results. It shows the number of correct classifications out of
 10000 tests as the network gets trained.
 
-<img src="https://cloud.githubusercontent.com/assets/23116478/22905779/7b05721e-f1f6-11e6-83a2-a7474d7a1d41.png" width=500>
+<img src="https://cloud.githubusercontent.com/assets/23116478/22905779/7b05721e-f1f6-11e6-83a2-a7474d7a1d41.png">
 *(Number of correct digit classifications versus epoch)*
 
 
