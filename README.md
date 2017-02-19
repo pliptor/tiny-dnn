@@ -1,4 +1,4 @@
-# tiny-dnn-lab:<br> A fork of the C++ Deep Learning library <img src="https://github.com/tiny-dnn/tiny-dnn/blob/master/docs/logo/TinyDNN-logo-letters-alpha-version.png"width=120>
+# tiny-dnn-lab:<br> A fork of the C++ Deep Learning library <img src="https://github.com/pliptor/tiny-dnn/blob/master/docs/logo/TinyDNN-logo-letters-alpha-version.png"width=120>
 
 ## This fork plays with some of its examples and create others
 
@@ -38,10 +38,10 @@ Here's snapshot generated when the network is being used to recognize a picture 
 <img src="https://cloud.githubusercontent.com/assets/23116478/23090774/f33b0b88-f55a-11e6-9742-22c67b2ea7ba.png">
 
 ## References
-[1] Y. Bengio, [Practical Recommendations for Gradient-Based Training of Deep Architectures.](https://arxiv.org/pdf/1206.5533v2.pdf) 
+[1] Y. Bengio, [Practical Recommendations for Gradient-Based Training of Deep Architectures.](http://arxiv.org/pdf/1206.5533v2.pdf) 
     arXiv:1206.5533v2, 2012
 
-[2] Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, [Gradient-based learning applied to document recognition.](https://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
+[2] Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, [Gradient-based learning applied to document recognition.](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
     Proceedings of the IEEE, 86, 2278-2324.
     
 other useful reference lists:
