@@ -2,7 +2,7 @@
 
 ## This fork plays with some of its examples and create others
 
-<img src="https://travis-ci.org/pliptor/tiny-dnn.svg?branch=master">
+<img src="https://travis-ci.org/pliptor/tiny-dnn-lab.svg?branch=master">
 
 ###  Please follow the link below for the upstream project if you are looking for tiny-dnn
 
