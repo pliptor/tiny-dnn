@@ -27,7 +27,7 @@
 
 typedef tiny_dnn::shape3d shape_t;
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) || defined(WIN32)
 #define _NOMINMAX
 #include <fcntl.h>
 #include <io.h>
@@ -244,19 +244,23 @@ inline std::shared_ptr<layer> create_pooling(const caffe::LayerParameter &layer,
   }
 
   if (w_pad != 0) {
-    if (w_pad == pool_size_w - 1) {
+    if (w_pad == (pool_size_w - 1) / 2) {
       pad_type = padding::same;
     } else {
       throw nn_error("unsupported padding type");
     }
+    // NB: w_pad == pool_size_w - 1 could lead to pad_type = padding::full,
+    //     if such a type existed
   }
 
   if (h_pad != 0) {
-    if (h_pad == pool_size_h - 1) {
+    if (h_pad == (pool_size_h - 1) / 2) {
       pad_type = padding::same;
     } else {
       throw nn_error("unsupported padding type");
     }
+    // NB: h_pad == pool_size_h - 1 could lead to pad_type = padding::full,
+    //     if such a type existed
   }
 
   if (pool_param.has_pool()) {
@@ -284,6 +288,14 @@ inline std::shared_ptr<layer> create_relu(const caffe::LayerParameter &layer,
   auto relu =
     std::make_shared<linear_layer<activation::relu>>(bottom_shape.size());
   return relu;
+}
+
+inline std::shared_ptr<layer> create_elu(const caffe::LayerParameter &layer,
+                                         const shape_t &bottom_shape,
+                                         shape_t *) {
+  auto elu =
+    std::make_shared<linear_layer<activation::elu>>(bottom_shape.size());
+  return elu;
 }
 
 inline std::shared_ptr<layer> create_batchnorm(
