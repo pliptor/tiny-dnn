@@ -4,17 +4,15 @@
 
 <img src="https://travis-ci.org/pliptor/tiny-dnn-lab.svg?branch=master">
 
-###  Please follow the link below for the upstream project if you are looking for tiny-dnn
-
-https://github.com/tiny-dnn/tiny-dnn/
+###  Please follow [this link](https://github.com/tiny-dnn/tiny-dnn/) for the upstream project.
 
 If you like C++ and want to play with deep learning, in my opinion, tiny-dnn is a good library for the following nice
 features:
 
-* No libraries or external packages required. I could had it up and running in a few minutes.
+* No libraries or external packages required other than a C++ compiling setup. I could had it up and running in a few minutes.
 * Classical examples included (MNIST and CIFAR10), so it's easy to get started.
 * Easy to understand interface.
-* The upstream library project is active with good support as of this writing Feb 2017
+* The upstream library project is active with good support as of this writing Mar 2017
 * Many others... follow the upstream project.
 
 ## Immediate goal of this fork: improve MNIST classification performance in the upstream code
@@ -25,7 +23,7 @@ features:
 The advertized performance by the upstream is 98.8%. 
 The current performace in this fork is 99.1% 99.2% is ready to be commited.
 
-The figure below is an example of a plot for simulation results. It shows the number of correct classifications out of
+The figure below is an example of a plot for simulation results. It shows the number of correct digit classifications out of
 10000 tests as the network gets trained.
 
 <img src="https://cloud.githubusercontent.com/assets/23116478/22905779/7b05721e-f1f6-11e6-83a2-a7474d7a1d41.png">
@@ -34,7 +32,7 @@ The figure below is an example of a plot for simulation results. It shows the nu
 
 ### The next challenge is classifying images (cifar10)
 
-Here's snapshot generated when the network is being used to recognize a picture of horse.
+Here's snapshot generated when the network is being used to recognize a picture of a horse.
 <img src="https://cloud.githubusercontent.com/assets/23116478/23090774/f33b0b88-f55a-11e6-9742-22c67b2ea7ba.png">
 
 ## References
