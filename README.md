@@ -1,8 +1,8 @@
-# tiny-dnn-lab
+# [tiny-dnn-lab](https://github.com/pliptor/tiny-dnn-lab)
 
-A fork of the C++ Deep Learning library 
+A [fork](https://github.com/pliptor/tiny-dnn-lab) of the C++ Deep Learning library 
 ![tiny-dnn](https://github.com/tiny-dnn/tiny-dnn/raw/master/docs/logo/TinyDNN-logo-letters-alpha-version.png)
-## This fork plays with some of its examples and creates others
+## [tiny-dnn-lab](https://github.com/pliptor/tiny-dnn-lab) plays with some of its examples and creates others
 
 |Linux/OSX|
 |----------------|
@@ -10,7 +10,7 @@ A fork of the C++ Deep Learning library
 
 It works on Windows too.
 
-###  Please follow [this link](https://github.com/tiny-dnn/tiny-dnn/) for the upstream project.
+###  If you are looking for tiny-dnn, please follow [this link](https://github.com/tiny-dnn/tiny-dnn/) for the upstream project.
 
 If you like C++ and want to play with deep learning, in my opinion, tiny-dnn is a good library for the following nice
 features:
@@ -27,7 +27,7 @@ features:
 ![Digit 8](https://cloud.githubusercontent.com/assets/23116478/23090826/1b412d8c-f55c-11e6-899b-eea967f80709.png)
 
 The advertized performance by the upstream is 98.8%. 
-The current performace in this fork is 99.1% 99.2% is ready to be commited.
+The current performace in this fork is 99.1%.
 
 The figure below is an example of a plot for simulation results. It shows the number of correct digit classifications out of
 10000 tests as the network gets trained.
