@@ -239,9 +239,9 @@ TEST(convolutional, with_stride) {
 
 #ifdef CNN_USE_AVX
 #ifdef CNN_USE_DOUBLE
-#define AVXEPS 1E-30
+#define AVXEPS 1E-15
 #else
-#define AVXEPS 1E-7
+#define AVXEPS 1E-6
 #endif
 TEST(convolutional, fprop_avx) {
   convolutional_layer<sigmoid> l(7, 7, 5, 1, 2);
