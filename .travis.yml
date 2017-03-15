@@ -80,6 +80,17 @@ before_script:
             -DCOVERALLS=$COVERALLS
             -DBUILD_EXAMPLES=$BUILD_EXAMPLES .;
     fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "clang++" ]; then
+      cmake -DUSE_SSE=$USE_SSE
+            -DUSE_AVX=$USE_AVX
+            -DBUILD_TESTS=$BUILD_TESTS
+            -DBUILD_EXAMPLES=$BUILD_EXAMPLES .;
+    fi
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+      cmake -DUSE_TBB=$USE_TBB
+            -DUSE_AVX=OFF
+            -DBUILD_TESTS=$BUILD_TESTS .;
+    fi
 
 script:
   - make -j2
