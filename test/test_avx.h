@@ -74,7 +74,7 @@ TEST(avx, sse_float) {
 #ifdef CNN_USE_AVX
 #ifdef CNN_USE_DOUBLE
 TEST(avx, avx_double) {
-  typedef __m128d register_type;
+  typedef __m256d register_type;
   register_type r1;
   register_type r2;
   register_type r3;
@@ -100,7 +100,7 @@ TEST(avx, avx_double) {
 }
 #else
 TEST(avx, avx_float) {
-  typedef __m128 register_type;
+  typedef __m256 register_type;
   register_type r1;
   register_type r2;
   register_type r3;
