@@ -94,7 +94,7 @@ before_script:
 
 script:
   - make -j2
-  - test/tiny_dnn_test --gtest_filter=convolutional.*avx*
+  - test/tiny_dnn_test --gtest_filter=avx.*
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then 
       make clang-format-check;
     fi
