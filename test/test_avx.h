@@ -14,6 +14,53 @@ namespace tiny_dnn {
 
 // test for AVX backends
 
+inline void randomize_tensor_avx(tensor_t &tensor) {
+  for (auto &vec : tensor) {
+    uniform_rand(vec.begin(), vec.end(), -1.0f, 1.0f);
+  }
+}
+
+// prepare tensor buffers for unit test
+class tensor_buf_avx {
+ public:
+  tensor_buf_avx(tensor_buf_avx &other)
+    : in_data_(other.in_data_), out_data_(other.out_data_) {
+    for (auto &d : in_data_) in_ptr_.push_back(&d);
+    for (auto &d : out_data_) out_ptr_.push_back(&d);
+  }
+
+  explicit tensor_buf_avx(const layer &l, bool randomize = true)
+    : in_data_(l.in_channels()),
+      out_data_(l.out_channels()),
+      in_ptr_(l.in_channels()),
+      out_ptr_(l.out_channels()) {
+    for (size_t i = 0; i < l.in_channels(); i++) {
+      in_data_[i].resize(1, vec_t(l.in_shape()[i].size()));
+      in_ptr_[i] = &in_data_[i];
+    }
+
+    for (size_t i = 0; i < l.out_channels(); i++) {
+      out_data_[i].resize(1, vec_t(l.out_shape()[i].size()));
+      out_ptr_[i] = &out_data_[i];
+    }
+
+    if (randomize) {
+      for (auto &tensor : in_data_) randomize_tensor_avx(tensor);
+      for (auto &tensor : out_data_) randomize_tensor_avx(tensor);
+    }
+  }
+
+  tensor_t &in_at(size_t i) { return in_data_[i]; }
+  tensor_t &out_at(size_t i) { return out_data_[i]; }
+
+  std::vector<tensor_t *> &in_buf() { return in_ptr_; }
+  std::vector<tensor_t *> &out_buf() { return out_ptr_; }
+
+ private:
+  std::vector<tensor_t> in_data_, out_data_;
+  std::vector<tensor_t *> in_ptr_, out_ptr_;
+};
+
 #ifdef CNN_USE_SSE
 TEST(avx, sse_double) {
   typedef __m128d register_type;
@@ -27,8 +74,8 @@ TEST(avx, sse_double) {
   register_type r2 = dsse1.set1(a2);
   register_type r3 = dsse1.set1(a3);
   dsse2.store(&ans, dsse1.madd(r1, r2, r3));
-  std::cout << "SSE " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "SSE " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
   a1 = 1e-2;
   a2 = 2e-2;
@@ -37,8 +84,8 @@ TEST(avx, sse_double) {
   r2 = dsse1.set1(a2);
   r3 = dsse1.set1(a3);
   dsse2.store(&ans, dsse1.madd(r1, r2, r3));
-  std::cout << "SSE " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "SSE " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
 }
 
@@ -54,8 +101,8 @@ TEST(avx, sse_float) {
   register_type r2 = fsse1.set1(a2);
   register_type r3 = fsse1.set1(a3);
   fsse2.store(&ans, fsse1.madd(r1, r2, r3));
-  std::cout << "SSE " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "SSE " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
   a1 = 1e-2;
   a2 = 2e-2;
@@ -64,8 +111,8 @@ TEST(avx, sse_float) {
   r2 = fsse1.set1(a2);
   r3 = fsse1.set1(a3);
   fsse2.store(&ans, fsse1.madd(r1, r2, r3));
-  std::cout << "SSE " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "SSE " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
 }
 #endif
@@ -83,8 +130,8 @@ TEST(avx, avx_double) {
   register_type r2 = davx1.set1(a2);
   register_type r3 = davx1.set1(a3);
   davx2.store(&ans, davx1.madd(r1, r2, r3));
-  std::cout << "AVX " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "AVX " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
   a1 = 1e-2;
   a2 = 2e-2;
@@ -93,8 +140,8 @@ TEST(avx, avx_double) {
   r2 = davx1.set1(a2);
   r3 = davx1.set1(a3);
   davx2.store(&ans, davx1.madd(r1, r2, r3));
-  std::cout << "AVX " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "AVX " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
 }
 TEST(avx, avx_float) {
@@ -109,8 +156,8 @@ TEST(avx, avx_float) {
   register_type r2 = favx1.set1(a2);
   register_type r3 = favx1.set1(a3);
   favx2.store(&ans, favx1.madd(r1, r2, r3));
-  std::cout << "AVX " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  //  std::cout << "AVX " << ans;
+  //  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
   a1 = 1e-2;
   a2 = 2e-2;
@@ -122,6 +169,30 @@ TEST(avx, avx_float) {
   std::cout << "AVX " << ans;
   std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
+}
+
+TEST(avx, fprop) {
+  convolutional_layer<identity> l(7, 7, 5, 1, 1);
+
+  tensor_buf_avx buf(l), buf2(l);
+
+  l.set_backend_type(tiny_dnn::core::backend_t::internal);
+
+  l.forward_propagation(buf.in_buf(), buf.out_buf());
+
+  l.set_backend_type(tiny_dnn::core::backend_t::avx);
+
+  l.forward_propagation(buf.in_buf(), buf2.out_buf());
+
+  vec_t &out_avx   = buf2.out_at(0)[0];
+  vec_t &out_noavx = buf.out_at(0)[0];
+
+  for (size_t i = 0; i < out_avx.size(); i++) {
+    std::printf("AVX %.20f CPU %.20f\n", out_avx[i], out_noavx[i]);
+    // check if all outputs between default backend and avx backend are the
+    // same
+    // EXPECT_EQ(out_avx[i], out_noavx[i]);
+  }
 }
 #endif  // CNN_USE_AVX
 
