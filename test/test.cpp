@@ -13,11 +13,14 @@
 
 using namespace tiny_dnn::activation;
 
+#if 0
 #include "test_average_pooling_layer.h"
 #include "test_network.h"
+#endif
 // TODO(yida): fix broken test
 //#include "test_average_unpooling_layer.h"
 #include "test_avx.h"
+#if 0
 #include "test_batch_norm_layer.h"
 #include "test_concat_layer.h"
 #include "test_convolutional_layer.h"
@@ -53,7 +56,7 @@ using namespace tiny_dnn::activation;
 #ifdef DNN_USE_IMAGE_API
 #include "test_image.h"
 #endif  // DNN_USE_IMAGE_API
-
+#endif
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
