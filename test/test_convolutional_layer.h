@@ -238,6 +238,11 @@ TEST(convolutional, with_stride) {
 // test for AVX backends
 
 #ifdef CNN_USE_AVX
+#ifdef CNN_USE_DOUBLE
+#define AVXEPS 1E-15
+#else
+#define AVXEPS 1E-6
+#endif
 TEST(convolutional, fprop_avx) {
   convolutional_layer<sigmoid> l(7, 7, 5, 1, 2);
 
@@ -257,7 +262,7 @@ TEST(convolutional, fprop_avx) {
   for (size_t i = 0; i < out_avx.size(); i++) {
     // check if all outputs between default backend and avx backend are the
     // same
-    EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+    EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
   }
 }
 
@@ -283,7 +288,7 @@ TEST(convolutional, bprop_avx) {
     vec_t &out_noavx = grad1.in_at(ch)[0];
     vec_t &out_avx   = grad2.in_at(ch)[0];
     for (size_t i = 0; i < out_avx.size(); i++) {
-      EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+      EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
     }
   }
 }
@@ -305,7 +310,7 @@ TEST(convolutional, fprop_avx_1x1out) {
   vec_t &out_noavx = buf.out_at(0)[0];
 
   for (size_t i = 0; i < out_avx.size(); i++) {
-    EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+    EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
   }
 }
 
@@ -331,7 +336,7 @@ TEST(convolutional, bprop_avx_1x1out) {
     vec_t &out_noavx = grad1.in_at(ch)[0];
     vec_t &out_avx   = grad2.in_at(ch)[0];
     for (size_t i = 0; i < out_avx.size(); i++) {
-      EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+      EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
     }
   }
 }
@@ -353,7 +358,7 @@ TEST(convolutional, fprop_avx_hstride) {
   vec_t &out_noavx = buf.out_at(0)[0];
 
   for (size_t i = 0; i < out_avx.size(); i++) {
-    EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+    EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
   }
 }
 
@@ -379,7 +384,7 @@ TEST(convolutional, bprop_avx_hstride) {
     vec_t &out_noavx = grad1.in_at(ch)[0];
     vec_t &out_avx   = grad2.in_at(ch)[0];
     for (size_t i = 0; i < out_avx.size(); i++) {
-      EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+      EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
     }
   }
 }
@@ -401,7 +406,7 @@ TEST(convolutional, fprop_avx_hstride_1x1out) {
   vec_t &out_noavx = buf.out_at(0)[0];
 
   for (size_t i = 0; i < out_avx.size(); i++) {
-    EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+    EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
   }
 }
 
@@ -427,7 +432,7 @@ TEST(convolutional, bprop_avx_hstride_1x1out) {
     vec_t &out_noavx = grad1.in_at(ch)[0];
     vec_t &out_avx   = grad2.in_at(ch)[0];
     for (size_t i = 0; i < out_avx.size(); i++) {
-      EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+      EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
     }
   }
 }
@@ -449,7 +454,7 @@ TEST(convolutional, fprop_avx_wstride) {
   vec_t &out_noavx = buf.out_at(0)[0];
 
   for (size_t i = 0; i < out_avx.size(); i++) {
-    EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+    EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
   }
 }
 
@@ -475,7 +480,7 @@ TEST(convolutional, bprop_avx_wstride) {
     vec_t &out_noavx = grad1.in_at(ch)[0];
     vec_t &out_avx   = grad2.in_at(ch)[0];
     for (size_t i = 0; i < out_avx.size(); i++) {
-      EXPECT_NEAR(out_avx[i], out_noavx[i], 1E-5);
+      EXPECT_NEAR(out_avx[i], out_noavx[i], AVXEPS);
     }
   }
 }
