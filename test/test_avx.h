@@ -20,7 +20,7 @@ void ppb_print(double reference,
   auto maxv = std::max(std::abs(reference), std::abs(measured));
   auto diff = std::abs(reference - measured);
   auto ppb  = static_cast<size_t>(1e9f * static_cast<float>(diff / maxv));
-  std::printf("%s %.20f   %s %.20f EVM %9zud ppb", ref.c_str(), reference,
+  std::printf("%s %.20f   %s %.20f EVM %9zu ppb\n", ref.c_str(), reference,
               mea.c_str(), measured, ppb);
 }
 // test for AVX backends
