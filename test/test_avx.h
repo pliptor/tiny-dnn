@@ -199,7 +199,7 @@ TEST(avx, fprop) {
   vec_t &out_noavx = buf.out_at(0)[0];
 
   for (size_t i = 0; i < out_avx.size(); i++) {
-    ppp_print(out_noavx[i], out_avx[i], "CPU", "AVX");
+    ppb_print(out_noavx[i], out_avx[i], "CPU", "AVX");
     // check if all outputs between default backend and avx backend are the
     // same
     // EXPECT_EQ(out_avx[i], out_noavx[i]);
