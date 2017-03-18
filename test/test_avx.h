@@ -12,6 +12,17 @@
 
 namespace tiny_dnn {
 
+// auxiliary function to compute relative differences in parts per billion (PPB)
+void ppb_print(double reference,
+               double measured,
+               std::string ref,
+               std::string mea) {
+  auto maxv = std::max(std::abs(reference), std::abs(measured));
+  auto diff = std::abs(reference - measured);
+  auto ppb  = static_cast<size_t>(1e9f * static_cast<float>(diff / maxv));
+  std::printf("%s %.20f   %s %.20f EVM %9zud ppb", ref.c_str(), reference,
+              mea.c_str(), measured, ppb);
+}
 // test for AVX backends
 
 inline void randomize_tensor_avx(tensor_t &tensor) {
@@ -166,8 +177,8 @@ TEST(avx, avx_float) {
   r2 = favx1.set1(a2);
   r3 = favx1.set1(a3);
   favx2.store(&ans, favx1.madd(r1, r2, r3));
-  std::cout << "AVX " << ans;
-  std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
+  // std::cout << "AVX " << ans;
+  // std::cout << " CPU " << ((a1 * a2) + a3) << std::endl;
   EXPECT_EQ(ans, ((a1 * a2) + a3));
 }
 
@@ -188,7 +199,7 @@ TEST(avx, fprop) {
   vec_t &out_noavx = buf.out_at(0)[0];
 
   for (size_t i = 0; i < out_avx.size(); i++) {
-    std::printf("AVX %.20f CPU %.20f\n", out_avx[i], out_noavx[i]);
+    ppp_print(out_noavx[i], out_avx[i], "CPU", "AVX");
     // check if all outputs between default backend and avx backend are the
     // same
     // EXPECT_EQ(out_avx[i], out_noavx[i]);
