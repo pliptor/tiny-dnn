@@ -35,27 +35,7 @@ addons:
       # caffe-importer dependencies
       - libprotobuf-dev
       - protobuf-compiler
-
-  coverity_scan:
-
-    project:
-      name: tiny-dnn/tiny-dnn
-      version: 1.0
-      description: Header only, dependency-free deep learning framework in C++11
-
-    notification_email: example@example.com
-
-    build_command_prepend: cmake -DUSE_TBB=ON
-            -DUSE_SSE=ON
-            -DUSE_AVX=ON
-            -DUSE_DOUBLE=OFF
-            -DBUILD_TESTS=ON
-            -DBUILD_EXAMPLES=ON .
-
-    build_command: make -j8
-
-    branch_pattern: master
-
+      
 branches:
   only:
     - master
@@ -65,8 +45,7 @@ env:
     - USE_TBB=ON
     - BUILD_TESTS=ON
     - BUILD_EXAMPLES=ON
-    - COVERALLS=ON
-    - secure: "TOKEN"
+    - COVERALLS=OFF
 
   matrix:
     - USE_SSE=OFF USE_AVX=OFF USE_DOUBLE=OFF
@@ -88,7 +67,6 @@ before_install:
 
 install:
   - bash -x .travis/install.sh
-  - gem install coveralls-lcov
 
 before_script:
   - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++-4.8" ]; then
